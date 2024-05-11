@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Jinx | Online-store</title>
+
+    <link rel="icon" type="image/png" th:href="@{../images/logo.png}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" th:href="@{../css/style.css}">
+    <!--  Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Work+Sans:wght@300;500;700&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<!--Main-->
+<section class="page" id="home">
+    <div th:replace="temp/header :: header"></div>
+
+    <div class="intro" id="intro" style="background-color: rgba(12, 12, 12, 0.6);">
+        <div class="container">
+            <div class="intro_inner">
+                <h2 class="intro_title">New Best Store Ever</h2>
+                <h1 class="intro-suptitle">We are about to change the way </h1>
+                <h1 class="intro-suptitle intro-suptitle--dop">you shopping</h1>
+                <button class="btn_scroll" id="scroll">&darr;</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--Catalog-->
+<section class="section" id="catalog">
+    <div class="container">
+
+        <div class="section_header">
+            <h2 class="section_title section_title--catalog">Catalog</h2>
+        </div>
+
+        <div class="catalog">
+            <div class="catalog_item">
+                <div class="catalog_img">
+                    <a th:href="@{/products}">
+                        <img th:src="@{/images/electronic.png}" alt="">
+                        <div class="catalog_text">Electronics</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="catalog_item">
+                <div class="catalog_img">
+                    <a th:href="@{/products}">
+                        <img th:src="@{/images/food.png}" alt="">
+                        <div class="catalog_text">Food</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="catalog">
+            <div class="catalog_item">
+                <div class="catalog_img">
+                    <a th:href="@{/products}">
+                        <img style="opacity: .6" th:src="@{/images/shoes.png}" alt="">
+                        <div class="catalog_text">Shoes</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="catalog_item">
+                <div class="catalog_img">
+                    <a th:href="@{/products}">
+                        <img th:src="@{/images/clothes.png}" alt="">
+                        <div class="catalog_text">Clothes</div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- START: Contact Info -->
+<section class="section" id="contact">
+    <div class="container">
+
+        <!-- START: Info -->
+        <div class="section_header">
+            <h2 class="section_title section_title--catalog">Contact Info:</h2>
+        </div>
+
+        <!-- END: Info -->
+
+        <div class="contact_info">
+            <ul class="contact_info_pos">
+                <li>
+                    <strong>Address:</strong> 420010 Universiade Village, RT
+                </li>
+                <li>
+                    <strong>Phone:</strong> +44 987 065 908
+                </li>
+                <li>
+                    <strong>Email:</strong> info@gmail.com
+                </li>
+                <li>
+                    <strong>Fax:</strong> +44 987 065 909
+                </li>
+            </ul>
+
+            <!-- START: Form -->
+            <form action="/" class="con" th:object="${contactForm}" th:method="POST" id="contactForm">
+                <div class="form_items">
+                    <div class="form_input">
+                        <p style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+                        <input type="text" class="form_input" name="name" placeholder="Your Name">
+                        <p style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                        <input type="email" class="form_input" name="email" placeholder="Your Email">
+                    </div>
+                    <div class="form_input">
+                        <p style="color: red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
+                        <input type="text" class="form_input" name="title" placeholder="Your Title">
+                    </div>
+                    <div class="form_input">
+                        <p style="color: red" th:if="${#fields.hasErrors('comment')}" th:errors="*{comment}"></p>
+                        <textarea class="form_input" cols="45" rows="5" name="comment" placeholder="Your Message"
+                                  aria-required="true"></textarea>
+                    </div>
+                    <div class="form_input">
+                        <button id="sendEmail" class="btn" type="submit">Send Message</button>
+                    </div>
+                </div>
+            </form>
+            <!-- END: Form -->
+
+            <!-- Модальное окно -->
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Письмо было успешно отправлено!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END: Contact Info -->
+
+
+<!--
+START: Footer
+-->
+<footer class="footer">
+    <div class="container">
+        <!--            <div class="nk-footer-social">-->
+        <!--                <ul>-->
+        <!--                    <a href="https://www.facebook.com/unvabdesign/"><i class="fa fa-facebook"></i></a>-->
+        <!--                    <a href="https://dribbble.com/_nK"><i class="fa fa-dribbble"></i></a>-->
+        <!--                    <a href="https://www.instagram.com/unvab/"><i class="fa fa-instagram"></i></a>-->
+        <!--                </ul>-->
+        <!--            </div>-->
+
+        <div class="footer_text">
+            <p>2024 &copy; Design and code by Nasyat</p>
+        </div>
+    </div>
+</footer>
+<!-- END: Footer -->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/app.js"></script>
+
+
+</body>
+</html>
