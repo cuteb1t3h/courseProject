@@ -9,7 +9,6 @@ body, html {
     line-height: 1.6;
     color: #333;
     scroll-behavior: smooth;
-    height: 100%;
 }
 
 *,
@@ -49,20 +48,6 @@ hr {
     /*max-width: 1200px;*/
     /*padding: 0 15px;*/
     /*margin: 0 auto;*/
-}
-
-.container--btn {
-    width: 400px;
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 40px;
-}
-
-.container--btn_f {
-    width: 400px;
-    display: block;
-    padding-top: 40px;
-    padding-bottom: 40px;
 }
 
 
@@ -361,9 +346,9 @@ button {
 
 /* Section */
 .section {
-    height: 100%;
+    /*height: 100%;*/
     padding: 9% 0;
-    background: linear-gradient(to bottom, rgba(124, 37, 180, 0.22), rgba(166, 97, 215, 0.03));
+    background: linear-gradient(to bottom, rgba(124, 37, 180, 0.22), rgba(166, 97, 215, 0.16));
 }
 
 .section_header {
@@ -531,19 +516,7 @@ form {
     background-image: linear-gradient(-225deg, rgba(212, 141, 255, 0.46) 50%, #FFE6FA 50%);
 }
 
-form[id="contactForm"]{
-    height: 425px;
-}
-
-form[id="login"] {
-    width: 450px;
-    height: 575px;
-}
-form[id="forgot"] {
-    width: 450px;
-}
-
-.con {
+.form_container {
     display: -webkit-flex;
     display: flex;
 
@@ -554,6 +527,18 @@ form[id="forgot"] {
     flex-wrap: wrap;
 
     margin: 0 auto;
+}
+
+form[id="contactForm"]{
+    height: 425px;
+}
+
+form[id="login"] {
+    width: 450px;
+    /*height: 575px;*/
+}
+form[id="forgot"] {
+    width: 450px;
 }
 
 input, textarea, .input_item {
@@ -582,6 +567,35 @@ input, textarea, .input_item {
 
 .form_input[id="pwd"], [id="txt-input"] {
     border-radius: 0 5px 5px 0;
+}
+
+.input_item {
+    background: #fff;
+    border-radius: 5px 0 0 5px;
+}
+
+.input_tooltip {
+    position: relative;
+}
+
+.input_tooltip_text {
+    position: absolute;
+    top: calc(20%);
+    right: -70%;
+    background-color: #fff;
+    color: #000000;
+    padding: 5px;
+    border-radius: 10px 10px 10px 0;
+    font-size: 15px;
+    white-space: nowrap;
+
+    opacity: 0;
+    transition: opacity .5s ease;
+}
+
+.input_tooltip:hover .input_tooltip_text {
+    z-index: 1;
+    opacity: 1;
 }
 
 
@@ -616,11 +630,6 @@ input, textarea, .input_item {
     height: 3px;
     margin: 20px auto;
     background-color: #a661d7;
-}
-
-.input_item {
-    background: #fff;
-    border-radius: 5px 0 0 5px;
 }
 
 

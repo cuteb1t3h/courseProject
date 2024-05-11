@@ -40,7 +40,7 @@ public class WebSecurityConfig {
                         .invalidateHttpSession(true)
                         .clearAuthentication(true)
                         .deleteCookies("JSESSIONID")
-                        .logoutSuccessUrl("/"));
+                        .logoutSuccessUrl("/login"));
 
         return http.build();
     }

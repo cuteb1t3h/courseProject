@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
@@ -27,18 +28,21 @@ public class User {
     @Size(min = 2, max = 25, message = "Username length must be between 2 and 25 chars")
     private String username;
 
-    @Size(min = 5, message = "Password length must be between 5 and 10 chars")
     @Column(name = "password")
     @NotEmpty(message = "Password must not be empty")
+    @Size(min = 5, message = "Password length must be between 5 and 10 chars")
     private String password;
 
-    @Column(name = "date_of_birth")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE, pattern = "dd.MM.yyyy")
-    private Date dateOfBirth;
-
     @Column(name = "email")
+    @NotEmpty(message = "Email must not be empty")
     @Email(message = "Invalid email")
     private String email;
+
+    @Column(name = "date_of_birth")
+    @NotNull(message = "Date must not be empty")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE, pattern = "yyyy-MM-dd")
+    private Date dateOfBirth;
+
 
     @Override
     public String toString() {
@@ -49,5 +53,9 @@ public class User {
                 ", dateOfBirth=" + dateOfBirth + '\'' +
                 ", email=" + email +
                 '}';
+    }
+
+    public String getDateOfBirthFormatted(){
+        return new SimpleDateFormat("yyyy-MM-dd").format(dateOfBirth);
     }
 }

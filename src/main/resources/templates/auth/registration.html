@@ -23,7 +23,7 @@
         You have been logged out.
     </div>
 
-    <form class="con" th:action="@{/register}" th:object="${user}" th:method="post" id="login">
+    <form class="form_container" th:action="@{/register}" th:object="${user}" th:method="post" id="login">
         <div class="form_title">
             <div class="login_header">
                 <h2 class="section_title_login">Registration</h2>
@@ -31,16 +31,24 @@
             </div>
 
             <div class="form_items">
-                <div class="error" style="color: red" th:if="${#fields.hasErrors('username')}"
-                     th:errors="*{username}"></div>
-                <input class="form_input" name="username" type="text" placeholder="Username">
+                <div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+                <div class="input_tooltip">
+                    <input name="username" type="text" placeholder="Username">
+                    <span class="input_tooltip_text">Username length must be between 2 and 25 chars</span>
+                </div>
 
-                <div class="error" style="color: red" th:if="${#fields.hasErrors('password')}"
-                     th:errors="*{password}"></div>
-                <input class="form_input" name="password" type="password" placeholder="Password">
+                <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+                <div class="input_tooltip">
+                    <input name="password" type="password" placeholder="Password">
+                    <span class="input_tooltip_text">Password length must be between 5 and 10 chars</span>
+                </div>
 
-                <div class="error" style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
-                <input class="form_input" name="email" type="email" placeholder="Email">
+                <div class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                <input class="input_tooltip" name="email" type="email" placeholder="Email">
+
+                <div class="error" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}"></div>
+                <input class="input_tooltip" name="dateOfBirth" type="date"/>
+
                 <br>
                 <button class="btn" type="submit">Sign Up</button>
 

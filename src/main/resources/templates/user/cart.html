@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>Cart</title>
-    <link rel="icon" type="image/png" th:href="@{../images/icon.png}">
+    <link rel="icon" type="image/png" th:href="@{../images/logo.png}">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -20,31 +20,7 @@
 
 <body>
 <section class="section">
-    <header class="header" id="header">
-        <div class="container">
-            <div class="header_inner" style="height: 67px">
-                <a th:href="@{/}" class="header_logo" style="height: 67px">
-                    <img th:src="@{/images/logo-light.png}" alt="" width="170">
-                </a>
-                <nav class="nav">
-                    <a class="nav_link" th:href="@{/#intro}">Home</a>
-                    <a class="nav_link" th:href="@{/products}">Catalog</a>
-                    <a class="nav_link" th:href="@{/user/cart}">Cart</a>
-                    <a class="nav_link" th:href="@{/#contact}">Contact</a>
-                    <a class="nav_link" th:href="@{/user/profile}">Profile</a>
-                    <div class="btn_theme">
-                        <img class="btn_first" onclick="setTheme('light')" th:src="@{/images/sun_light.png}" alt="" width="20">
-                        <img class="btn_second" onclick="setTheme('light')" th:src="@{/images/sun.png}" alt="" width="20">
-                    </div>
-                    <div class="btn_theme">
-                        <img class="btn_first" onclick="setTheme('dark')" th:src="@{/images/moon_light.png}" alt="" width="20">
-                        <img class="btn_second" onclick="setTheme('dark')" th:src="@{/images/moon.png}" alt="" width="20">
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>
-
+    <div th:replace="temp/header :: header"></div>
 
     <div class="login_header">
         <h2 class="section_title_login">Your cart</h2>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>Profile</title>
-    <link rel="icon" type="image/png" th:href="@{../images/icon.png}">
+    <link rel="icon" type="image/png" th:href="@{../images/logo.png}">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,32 +18,39 @@
 </head>
 
 <body>
-<section class="section" >
+<section class="section">
     <div th:replace="temp/header :: header"></div>
 
     <div class="login_header">
-        <h2 class="section_title_login">Your profile</h2>
+        <h2 class="section_title_login">Profile</h2>
         <h3 class="section_suptitle_login">Here should be avatar img</h3>
+        <!--        <img th:src="@{/images/logo-light.png}" alt="" width="150">-->
     </div>
 
-    <div class="login_page" th:object="${profile_user}">
-        <div class="login_item" >
-            <div class="form_title">
-                <div>
-                    <text class="login_text">Username:</text>
-                    <span th:text="${profile_user.getUsername()}">name</span>
-                </div>
-
-<!--                <div>-->
-<!--                    <text class="login_text">Year of birth</text>-->
-<!--                    <span th:text="${profile_user.getDateOfBirth()}">year</span>-->
-<!--                </div>-->
-                <br>
-                <a th:href="@{/products}"><button class="btn" type="button">Go to catalog</button></a>
-                <a th:href="@{/user/change_password}"><button class="btn" type="button">Change password</button></a>
-                <a th:href="@{/user/cart}"><button class="btn" type="button">Cart</button></a>
-                <a th:href="@{/logout}"><button class="btn" type="button">Log out</button></a>
+    <div class="" th:object="${profile_user}">
+        <div class="form_title">
+            <div>
+                <span class="login_text">Username:</span>
+                <span th:text="${profile_user.getUsername()}">name</span>
             </div>
+
+            <div>
+                <text class="login_text">Year of birth</text>
+                <span th:text="${profile_user.getDateOfBirthFormatted()}">year</span>
+            </div>
+            <br>
+            <a th:href="@{/products}">
+                <button class="btn" type="button">Go to catalog</button>
+            </a>
+            <a th:href="@{/user/change_password}">
+                <button class="btn" type="button">Change password</button>
+            </a>
+            <a th:href="@{/user/cart}">
+                <button class="btn" type="button">Cart</button>
+            </a>
+            <a th:href="@{/logout}">
+                <button class="btn" type="button">Log out</button>
+            </a>
         </div>
     </div>
     </div>
