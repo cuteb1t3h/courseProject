@@ -24,12 +24,10 @@ public class User {
     private long id;
 
     @Column(name = "username")
-    @NotEmpty(message = "Username must not be empty")
     @Size(min = 2, max = 25, message = "Username length must be between 2 and 25 chars")
     private String username;
 
     @Column(name = "password")
-    @NotEmpty(message = "Password must not be empty")
     @Size(min = 5, message = "Password length must be between 5 and 10 chars")
     private String password;
 

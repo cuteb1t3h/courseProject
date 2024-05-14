@@ -22,7 +22,7 @@ public class UserService {
 
     public void saveNew(User user) {
         userRepo.save(user);
-        cartService.save(new Cart(user));
+//        cartService.save(new Cart(user));
     }
 
     public void save(User user) {
@@ -34,7 +34,7 @@ public class UserService {
     }
 
     public boolean update(User user, String newPass) {
-        User found = findByUsername(user.getEmail()).orElse(null);
+        User found = findByEmail(user.getEmail()).orElse(null);
         if (found == null) {
             return false;
         }
@@ -53,8 +53,8 @@ public class UserService {
         return passwordEncoder.matches(password, basePassword);
     }
 
-    public Optional<User> findByUsername(String username) {
-        return userRepo.findUserByUsername(username);
+    public Optional<User> findByEmail(String email) {
+        return userRepo.findByEmail(email);
     }
 
 }

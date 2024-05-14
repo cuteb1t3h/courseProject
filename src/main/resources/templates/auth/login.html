@@ -25,46 +25,44 @@
     <div th:replace="temp/header :: header"></div>
 
     <form class="form_container" th:action="@{/login}" method="post" id="login">
-        <div class="form_title">
-            <div class="login_header">
-                <h2 class="section_title_login">Log In</h2>
-                <h3 class="section_suptitle_login">Login here using your username and password</h3>
-            </div>
+        <div class="page_header">
+            <h2 class="page_title">Log In</h2>
+            <h3 class="page_suptitle">Login here using your username and password</h3>
+        </div>
 
-            <div class="error" th:if="${param.error}">
-                Invalid username or password.
-            </div>
+        <div class="error" th:if="${param.error}">
+            Invalid username or password.
+        </div>
 
-            <div class="form_items">
+        <div class="form_items">
                 <span class="input_item">
                 <i class="fa fa-user-circle"></i>
             </span>
 
-                <input class="form_input" id="txt-input" type="text" placeholder="Username" name="username">
-                <br>
-                <span class="input_item">
+            <input class="form_input" id="txt-input" type="text" placeholder="Email" name="username">
+            <br>
+            <span class="input_item">
                 <i class="fa fa-key"></i>
             </span>
 
-                <input class="form_input" id="pwd" type="password" placeholder="Password" name="password">
-                <br>
-                <button class="btn"> Log In</button>
-            </div>
+            <input class="form_input" id="pwd" type="password" placeholder="Password" name="password">
+            <br>
+            <button class="btn"> Log In</button>
+        </div>
 
 
-            <div>
-                <a th:href="@{/forgot_password}">
-                    <button class="btn btn_pas submits" type="button">
-                        <span>Forgot Password</span>
-                    </button>
-                </a>
-                <a th:href="@{/register}">
-                    <button class="btn submits" type="button">
-                        <span>Sign Up</span>
-                        <i class="fa fa-user-plus" aria-hidden="true"></i>
-                    </button>
-                </a>
-            </div>
+        <div>
+            <a th:href="@{/forgot_password}">
+                <button class="btn btn_pas submits" type="button">
+                    <span>Forgot Password</span>
+                </button>
+            </a>
+            <a th:href="@{/register}">
+                <button class="btn submits" type="button">
+                    <span>Sign Up</span>
+                    <i class="fa fa-user-plus" aria-hidden="true"></i>
+                </button>
+            </a>
         </div>
     </form>
 </section>

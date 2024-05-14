@@ -40,113 +40,102 @@
 
 
 <!--Catalog-->
-<section class="section" id="catalog">
-    <div class="container">
+<section class="section" style="height: 100vh" id="catalog">
+    <div class="section_header">
+        <h2 class="section_title">Catalog</h2>
+    </div>
 
-        <div class="section_header">
-            <h2 class="section_title section_title--catalog">Catalog</h2>
-        </div>
-
-        <div class="catalog">
-            <div class="catalog_item">
-                <div class="catalog_img">
-                    <a th:href="@{/products}">
-                        <img th:src="@{/images/electronic.png}" alt="">
-                        <div class="catalog_text">Electronics</div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="catalog_item">
-                <div class="catalog_img">
-                    <a th:href="@{/products}">
-                        <img th:src="@{/images/food.png}" alt="">
-                        <div class="catalog_text">Food</div>
-                    </a>
-                </div>
+    <div class="catalog">
+        <div class="catalog_item">
+            <div class="catalog_img">
+                <a th:href="@{/products}">
+                    <img th:src="@{/images/acrylic.png}" alt="">
+                    <div class="catalog_text">Acrylic nail</div>
+                </a>
             </div>
         </div>
 
-        <div class="catalog">
-            <div class="catalog_item">
-                <div class="catalog_img">
-                    <a th:href="@{/products}">
-                        <img style="opacity: .6" th:src="@{/images/shoes.png}" alt="">
-                        <div class="catalog_text">Shoes</div>
-                    </a>
-                </div>
+        <div class="catalog_item">
+            <div class="catalog_img">
+                <a th:href="@{/products}">
+                    <img th:src="@{/images/gel.png}" alt="">
+                    <div class="catalog_text">Gel nail</div>
+                </a>
             </div>
-
-            <div class="catalog_item">
-                <div class="catalog_img">
-                    <a th:href="@{/products}">
-                        <img th:src="@{/images/clothes.png}" alt="">
-                        <div class="catalog_text">Clothes</div>
-                    </a>
-                </div>
-            </div>
-
         </div>
+
+        <div class="catalog_item">
+            <div class="catalog_img">
+                <a th:href="@{/products}">
+                    <img th:src="@{/images/care.png}" alt="">
+                    <div class="catalog_text">Nail care & glue</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="catalog_item">
+            <div class="catalog_img">
+                <a th:href="@{/products}">
+                    <img th:src="@{/images/accessories.png}" alt="">
+                    <div class="catalog_text">Nail tools & accessories</div>
+                </a>
+            </div>
+        </div>
+
     </div>
 </section>
 
 
 <!-- START: Contact Info -->
 <section class="section" id="contact">
-    <div class="container">
+    <div class="section_header">
+        <h2 class="section_title">Contact Info:</h2>
+    </div>
 
-        <!-- START: Info -->
-        <div class="section_header">
-            <h2 class="section_title section_title--catalog">Contact Info:</h2>
-        </div>
+    <div class="contact_info">
+        <ul class="contact_info_pos">
+            <li>
+                <strong>Address:</strong> 420010 Universiade Village, RT
+            </li>
+            <li>
+                <strong>Phone:</strong> +44 987 065 908
+            </li>
+            <li>
+                <strong>Email:</strong> info@gmail.com
+            </li>
+            <li>
+                <strong>Fax:</strong> +44 987 065 909
+            </li>
+        </ul>
 
-        <!-- END: Info -->
-
-        <div class="contact_info">
-            <ul class="contact_info_pos">
-                <li>
-                    <strong>Address:</strong> 420010 Universiade Village, RT
-                </li>
-                <li>
-                    <strong>Phone:</strong> +44 987 065 908
-                </li>
-                <li>
-                    <strong>Email:</strong> info@gmail.com
-                </li>
-                <li>
-                    <strong>Fax:</strong> +44 987 065 909
-                </li>
-            </ul>
-
-            <!-- START: Form -->
-            <form action="/" class="form_container" th:object="${contactForm}" th:method="POST" id="contactForm">
-                <div class="form_items">
-                    <div>
-                        <p style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
-                        <input type="text" name="name" placeholder="Your Name">
-                        <p style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
-                        <input type="email" name="email" placeholder="Your Email">
-                    </div>
-                    <div>
-                        <p style="color: red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
-                        <input type="text" name="title" placeholder="Your Title">
-                    </div>
-                    <div>
-                        <p style="color: red" th:if="${#fields.hasErrors('comment')}" th:errors="*{comment}"></p>
-                        <textarea cols="45" rows="5" name="comment" placeholder="Your Message"
-                                  aria-required="true"></textarea>
-                    </div>
-                        <button id="sendEmail" class="btn" type="submit">Send Message</button>
+        <!-- START: Form -->
+        <form action="/" class="form_container" th:object="${contactForm}" th:method="POST" id="contactForm">
+            <div class="form_items">
+                <div>
+                    <p class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+                    <input type="text" name="name" placeholder="Your Name">
+                    <p style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                    <input type="email" name="email" placeholder="Your Email">
                 </div>
-            </form>
-            <!-- END: Form -->
-
-            <!-- Модальное окно -->
-            <div id="myModal" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <p>Письмо было успешно отправлено!</p>
+                <div>
+                    <p style="color: red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
+                    <input type="text" name="title" placeholder="Your Title">
                 </div>
+                <div>
+                    <p style="color: red" th:if="${#fields.hasErrors('comment')}" th:errors="*{comment}"></p>
+                    <textarea cols="45" rows="5" name="comment" placeholder="Your Message"
+                              aria-required="true"></textarea>
+                </div>
+                <button id="sendEmail" class="btn" type="submit">Send Message</button>
+            </div>
+        </form>
+        <!-- END: Form -->
+
+        <!-- Модальное окно -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Письмо было успешно отправлено!</p>
             </div>
         </div>
     </div>
@@ -157,21 +146,21 @@
 <!--
 START: Footer
 -->
-<footer class="footer">
-    <div class="container">
-        <!--            <div class="nk-footer-social">-->
-        <!--                <ul>-->
-        <!--                    <a href="https://www.facebook.com/unvabdesign/"><i class="fa fa-facebook"></i></a>-->
-        <!--                    <a href="https://dribbble.com/_nK"><i class="fa fa-dribbble"></i></a>-->
-        <!--                    <a href="https://www.instagram.com/unvab/"><i class="fa fa-instagram"></i></a>-->
-        <!--                </ul>-->
-        <!--            </div>-->
+<!--<footer class="footer">-->
+<!--    <div class="container">-->
+<!--        &lt;!&ndash;            <div class="nk-footer-social">&ndash;&gt;-->
+<!--        &lt;!&ndash;                <ul>&ndash;&gt;-->
+<!--        &lt;!&ndash;                    <a href="https://www.facebook.com/unvabdesign/"><i class="fa fa-facebook"></i></a>&ndash;&gt;-->
+<!--        &lt;!&ndash;                    <a href="https://dribbble.com/_nK"><i class="fa fa-dribbble"></i></a>&ndash;&gt;-->
+<!--        &lt;!&ndash;                    <a href="https://www.instagram.com/unvab/"><i class="fa fa-instagram"></i></a>&ndash;&gt;-->
+<!--        &lt;!&ndash;                </ul>&ndash;&gt;-->
+<!--        &lt;!&ndash;            </div>&ndash;&gt;-->
 
-        <div class="footer_text">
-            <p>2024 &copy; Design and code by Nasyat</p>
-        </div>
-    </div>
-</footer>
+<!--        <div class="footer_text">-->
+<!--            <p>2024 &copy; Design and code by Nasyat</p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</footer>-->
 <!-- END: Footer -->
 
 

@@ -50,7 +50,7 @@ public class ProductsController {
             model.addAttribute("product", product);
             boolean flag = false;
             if (authUser != null) {
-                User user = userService.findByUsername(authUser.getUsername()).get();
+                User user = userService.findByEmail(authUser.getUsername()).get();
                 model.addAttribute("cart", cartService.findByProductViaUser(user, product));
                 flag = true;
             }
@@ -63,7 +63,7 @@ public class ProductsController {
     @PatchMapping("/{id}/add_to_cart")
     public String addToCart(@PathVariable("id") long id, @AuthenticationPrincipal org.springframework.security.core.userdetails.User authUser,
                             Model model) {
-        User user = userService.findByUsername(authUser.getUsername()).get();
+        User user = userService.findByEmail(authUser.getUsername()).get();
         Product product = productsService.findById(id).get();
         cartService.addProduct(user, product);
         model.addAttribute("cart", cartService.findByUser(user));

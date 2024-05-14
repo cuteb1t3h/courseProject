@@ -18,26 +18,27 @@
 </head>
 
 <body>
-<section class="section">
+<section class="section" style="height: 100vh">
     <div th:replace="temp/header :: header"></div>
 
-    <div class="login_header">
-        <h2 class="section_title_login">Profile</h2>
-        <h3 class="section_suptitle_login">Here should be avatar img</h3>
-        <!--        <img th:src="@{/images/logo-light.png}" alt="" width="150">-->
-    </div>
+    <div class="form_container">
+        <div class="page_header">
+            <h2 class="page_title">Profile</h2>
+            <!--        <h3 class="page_suptitle">Here should be avatar img</h3>-->
+            <!--        <img th:src="@{/images/logo-light.png}" alt="" width="150">-->
+        </div>
 
-    <div class="" th:object="${profile_user}">
-        <div class="form_title">
-            <div>
-                <span class="login_text">Username:</span>
+        <div class="form_items" th:object="${profile_user}">
+            <div class="page_suptitle">
+                <span>Username:</span>
                 <span th:text="${profile_user.getUsername()}">name</span>
             </div>
 
-            <div>
-                <text class="login_text">Year of birth</text>
+            <div class="page_suptitle">
+                <span>Year of birth</span>
                 <span th:text="${profile_user.getDateOfBirthFormatted()}">year</span>
             </div>
+
             <br>
             <a th:href="@{/products}">
                 <button class="btn" type="button">Go to catalog</button>
@@ -52,7 +53,6 @@
                 <button class="btn" type="button">Log out</button>
             </a>
         </div>
-    </div>
     </div>
 </section>
 

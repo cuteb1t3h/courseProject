@@ -24,40 +24,38 @@
     </div>
 
     <form class="form_container" th:action="@{/register}" th:object="${user}" th:method="post" id="login">
-        <div class="form_title">
-            <div class="login_header">
-                <h2 class="section_title_login">Registration</h2>
-                <h3 class="section_suptitle_login">Enter your info</h3>
+        <div class="page_header">
+            <h2 class="page_title">Registration</h2>
+            <h3 class="page_suptitle">Enter your info</h3>
+        </div>
+
+        <div class="form_items">
+            <div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+            <div class="input_tooltip">
+                <input name="username" type="text" placeholder="Username">
+                <span class="input_tooltip_text">Username length must be between 2 and 25 chars</span>
             </div>
 
-            <div class="form_items">
-                <div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
-                <div class="input_tooltip">
-                    <input name="username" type="text" placeholder="Username">
-                    <span class="input_tooltip_text">Username length must be between 2 and 25 chars</span>
-                </div>
-
-                <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
-                <div class="input_tooltip">
-                    <input name="password" type="password" placeholder="Password">
-                    <span class="input_tooltip_text">Password length must be between 5 and 10 chars</span>
-                </div>
-
-                <div class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
-                <input class="input_tooltip" name="email" type="email" placeholder="Email">
-
-                <div class="error" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}"></div>
-                <input class="input_tooltip" name="dateOfBirth" type="date"/>
-
-                <br>
-                <button class="btn" type="submit">Sign Up</button>
-
-                <a th:href="@{/login}">
-                    <button class="btn btn_pas submits" type="button">
-                        <span>Go to login</span>
-                    </button>
-                </a>
+            <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+            <div class="input_tooltip">
+                <input name="password" type="password" placeholder="Password">
+                <span class="input_tooltip_text">Password length must be between 5 and 10 chars</span>
             </div>
+
+            <div class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+            <input class="input_tooltip" name="email" type="email" placeholder="Email">
+
+            <div class="error" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}"></div>
+            <input class="input_tooltip" name="dateOfBirth" type="date"/>
+
+            <br>
+            <button class="btn" type="submit">Sign Up</button>
+
+            <a th:href="@{/login}">
+                <button class="btn btn_pas submits" type="button">
+                    <span>Go to login</span>
+                </button>
+            </a>
         </div>
     </form>
 </section>

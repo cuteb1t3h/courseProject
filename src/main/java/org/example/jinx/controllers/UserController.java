@@ -33,18 +33,18 @@ public class UserController {
 
     @GetMapping("/profile")
     public String profile(@AuthenticationPrincipal org.springframework.security.core.userdetails.User user, Model model) {
-        Optional<User> a = userService.findByUsername(user.getUsername());
+        Optional<User> a = userService.findByEmail(user.getUsername());
         if (a.isPresent()) {
             User myUser = a.get();
             model.addAttribute("profile_user", myUser);
             return "user/profile";
         }
-        return "redirect:auth/login";
+        return "redirect:/login";
     }
 
     @GetMapping("change_password")
     public String change_password(@AuthenticationPrincipal org.springframework.security.core.userdetails.User user, Model model) {
-        Optional<User> a = userService.findByUsername(user.getUsername());
+        Optional<User> a = userService.findByEmail(user.getUsername());
         if (a.isPresent()) {
             model.addAttribute("pass", new ChangePassword());
             return "/user/change_password";
@@ -55,7 +55,7 @@ public class UserController {
     @PostMapping("change_password")
     public String change_password(@AuthenticationPrincipal org.springframework.security.core.userdetails.User authUser,
                                   @ModelAttribute("pass") @Valid ChangePassword user, BindingResult bindingResult, Model model) {
-        Optional<User> a = userService.findByUsername(authUser.getUsername());
+        Optional<User> a = userService.findByEmail(authUser.getUsername());
         if (a.isPresent()) {
             User myUser = a.get();
             if (bindingResult.hasErrors()) {
@@ -79,7 +79,7 @@ public class UserController {
     @GetMapping("/cart")
     public String cart(@AuthenticationPrincipal org.springframework.security.core.userdetails.User authUser,
                        Model model) {
-        User user = userService.findByUsername(authUser.getUsername()).get();
+        User user = userService.findByEmail(authUser.getUsername()).get();
         List<Cart> carts = cartService.findProductsByUser(user);
         cartService.sortById(carts);
         model.addAttribute("products", carts);
@@ -90,7 +90,7 @@ public class UserController {
     @PatchMapping("/cart/{product_id}/increase")
     public String increaseQuantity(@AuthenticationPrincipal org.springframework.security.core.userdetails.User authUser,
                                    @PathVariable("product_id") long product_id) {
-        User user = userService.findByUsername(authUser.getUsername()).get();
+        User user = userService.findByEmail(authUser.getUsername()).get();
         List<Cart> carts = cartService.findProductsByUser(user);
         for (Cart product: carts) {
             if (product.getProduct().getId() == product_id) {
@@ -103,7 +103,7 @@ public class UserController {
     @PatchMapping("/cart/{product_id}/decrease")
     public String decreaseQuantity(@AuthenticationPrincipal org.springframework.security.core.userdetails.User authUser,
                                    @PathVariable("product_id") long product_id) {
-        User user = userService.findByUsername(authUser.getUsername()).get();
+        User user = userService.findByEmail(authUser.getUsername()).get();
         List<Cart> carts = cartService.findProductsByUser(user);
         for (Cart product: carts) {
             if (product.getProduct().getId() == product_id) {
@@ -116,14 +116,14 @@ public class UserController {
     @DeleteMapping("/cart/{product_id}/delete_from_cart")
     public String deleteFromCart(@PathVariable("product_id") long productId, @AuthenticationPrincipal org.springframework.security.core.userdetails.User authUser,
                                  Model model){
-        User user = userService.findByUsername(authUser.getUsername()).get();
+        User user = userService.findByEmail(authUser.getUsername()).get();
         cartService.deleteProductById(productId, user);
         return "redirect:/user/cart";
     }
 
     @DeleteMapping("/cart/delete_cart")
     public String deleteCart(@AuthenticationPrincipal org.springframework.security.core.userdetails.User authUser) {
-        User user = userService.findByUsername(authUser.getUsername()).get();
+        User user = userService.findByEmail(authUser.getUsername()).get();
         cartService.deleteAllCart(user);
         return "redirect:/user/cart";
     }
