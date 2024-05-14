@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+
 @Entity
 @Table(name = "products")
 @Getter
@@ -47,4 +49,7 @@ public class Product {
     @NotEmpty
     @Column(name = "image")
     private String image;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<Cart> cartList;
 }

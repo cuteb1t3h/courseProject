@@ -3,7 +3,7 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Playfair Display', sans-serif;
+    font-family: 'Work Sans', sans-serif;
     font-weight: 200;
     font-size: 15px;
     line-height: 1.6;
@@ -46,23 +46,15 @@ hr {
 }
 
 
-/* Container */
-.container {
-    /*width: 100%;*/
-    /*max-width: 1200px;*/
-    /*padding: 0 15px;*/
-    /*margin: 0 auto;*/
-}
-
-
 /* Intro */
 .intro {
+    font-family: 'Playfair Display', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
     height: 100vh;
-    font-family: inherit;
+    /*font-family: inherit;*/
     line-height: 1.1;
 }
 
@@ -77,20 +69,21 @@ hr {
 .intro_title {
     color: #fff;
     font-size: .93rem;
-    font-weight: 700;
+    font-weight: 500;
     font-family: 'Work Sans', sans-serif;
     text-transform: uppercase;
-    letter-spacing: .2em;
+    letter-spacing: .3em;
 }
 
 .intro-suptitle {
     font-size: 54px;
     color: #fff;
+    letter-spacing: 3px;
+    font-weight: 400;
 }
 
 .intro-suptitle--dop {
-    font-weight: 400;
-    font-style: italic;
+    /*font-style: italic;*/
 }
 
 
@@ -98,16 +91,13 @@ hr {
 .header, .header.fixed {
     width: 100%;
     padding: 1% 10%;
-
     position: fixed;
-
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
     background-color: #a661d7;
     box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
-
     transition: background-color 0.3s ease-in-out;
 }
 
@@ -126,21 +116,17 @@ hr {
 nav {
     cursor: pointer;
     transition: all 0.2s linear;
-
-    /*margin: 10% auto;*/
-    margin: 10% 25%;
-    letter-spacing: 0.05em;
+    margin: 10% 30%;
+    letter-spacing: 0.3em;
 }
 
 .nav {
     font-size: 14px;
     text-transform: uppercase;
-
     white-space: nowrap;
 }
 
 .nav_link {
-    font-family: 'Work Sans', sans-serif;
     font-weight: 500;
     display: inline-block;
     vertical-align: top;
@@ -174,49 +160,6 @@ nav {
 }
 
 
-/* Navigation for other */
-/*.nav_link_other {*/
-/*    font-family: 'Work Sans', sans-serif;*/
-/*    font-weight: 500;*/
-
-/*    display: inline-block;*/
-/*    vertical-align: top;*/
-/*    padding: 10px;*/
-/*    position: relative;*/
-
-/*    color: #0c0c0c;*/
-/*    text-decoration: none;*/
-
-/*    transition: color .2s linear;*/
-/*}*/
-/*.nav_link_other:after {*/
-/*    content: "";*/
-/*    display: block;*/
-/*    width: 100%;*/
-/*    height: 3px;*/
-
-/*    background-color: #fff;*/
-/*    opacity: 0;*/
-
-/*    position: absolute;*/
-/*    top: 100%;*/
-/*    left: 0;*/
-/*    z-index: 1;*/
-
-/*    transition: opacity .2s linear;*/
-/*}*/
-/*.nav_link_other:hover {*/
-/*    color: #fff;*/
-/*}*/
-/*.nav_link_other:hover:after,*/
-/*.nav_link_other.active:after{*/
-/*    opacity: 1;*/
-/*}*/
-/*.nav_link.active {*/
-/*    color: #fff;*/
-/*}*/
-
-
 /*ERROR*/
 .error {
     font-size: 20px;
@@ -228,36 +171,25 @@ nav {
 /* Button */
 button {
     display: inline-block;
-
     background: none;
     border-radius: 10rem;
-
     outline: none;
     border: 1px solid #000;
-
     cursor: pointer;
     transition: all 0.2s linear;
-
     text-align: center;
-    letter-spacing: 0.05em;
     text-transform: uppercase;
+    position: relative;
 }
 
 .btn {
     margin: 7% auto;
-    position: relative;
-
-    /*color: #252537; !*хз что это*!*/
-
     width: 280px;
     height: 50px;
-
     border-radius: 10rem;
-
     background-color: rgba(212, 141, 255, 0.46);
-
     transition: all .3s;
-    letter-spacing: 2px;
+    letter-spacing: 0.3em;
     overflow: hidden;
 }
 
@@ -277,23 +209,18 @@ button {
     width: 100%;
 }
 
-.btn--sum {
-    margin: 20px 20px 0 20px;
-}
+/*возможно надо удалить*/
+/*.btn--sum {*/
+/*    margin: 20px 20px 0 20px;*/
+/*}*/
 
 .btn_scroll {
-    position: relative;
-
-    margin-top: 100px;
+    margin-top: 10%;
     min-width: 50px;
     min-height: 50px;
     font-size: 24px;
-
-    text-transform: uppercase;
-    border-radius: 50%;
     color: #fff;
     background: none;
-
     border: 2px solid;
     transition: all 0.3s ease-in-out 0s;
     outline: none;
@@ -332,39 +259,32 @@ button {
     }
 }
 
-
-/*Password link*/
-.btn_pas {
+.btn_light {
     background-color: rgba(213, 173, 255, 0);
-
-    position: relative;
-    transition: all .3s;
-    letter-spacing: 2px;
+    letter-spacing: 0.3em;
     overflow: hidden;
 }
 
 
 /* Section */
 .section {
-    /*height: 100vh;*/
     padding: 9% 0;
     background: linear-gradient(to bottom, rgba(124, 37, 180, 0.22), rgba(166, 97, 215, 0.16));
 }
 
 .section_header {
-    width: 100%;
     max-width: 950px;
-    /*margin: 0 auto 5%;*/
     margin: 0 auto;
     text-align: center;
 }
 
 .section_title {
+    font-family: 'Playfair Display', sans-serif;
     font-weight: 300;
     color: #333;
     text-transform: uppercase;
-    padding-top: 10px;
     font-size: 40px;
+    letter-spacing: 0.3em;
 }
 
 .section_title:after {
@@ -387,8 +307,7 @@ button {
 /* Catalog */
 .catalog {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
+    grid-template-columns: repeat(2, 2fr);
     margin-top: 4%;
 }
 
@@ -412,18 +331,21 @@ button {
     transition: opacity .2s linear;
 }
 
-.catalog_text {
-    font-size: 24px;
-    color: #333;
-    font-family: 'Work Sans', sans-serif;
-    text-transform: uppercase;
-    font-weight: 300;
-    text-align: center;
-    transition: opacity .2s linear;
+.catalog_img:hover .catalog_text {
+    color: #a661d7;
 }
 
-.catalog_item:hover .catalog_text {
-    color: #a661d7;
+.catalog_text {
+    font-size: 24px;
+    color: transparent;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-align: center;
+    transition: opacity .2s linear;
+    background: linear-gradient(to bottom, #a661d7, #333);
+    -webkit-background-clip: text;
+    background-clip: text;
 }
 
 
@@ -598,9 +520,16 @@ input, textarea, .input_item {
 }
 
 .page_suptitle {
+    font-family: 'Work Sans', sans-serif;
     font-size: 24px;
     color: #333;
     font-weight: 300;
+}
+
+.page_suptitle[id="products"] {
+    font-family: 'Playfair Display', sans-serif;
+    color: #333;
+    font-size: 36px;
 }
 
 .page_title {
@@ -668,7 +597,6 @@ input, textarea, .input_item {
 .prod_category {
     font-size: 24px;
     margin: 10px 0;
-
     border-bottom: 3px solid #a661d7;
 }
 
@@ -755,7 +683,7 @@ input, textarea, .input_item {
 
 .product_description {
     text-align: center;
-    margin-top: 5%;
+    margin: 5%;
 }
 
 
@@ -765,7 +693,6 @@ input, textarea, .input_item {
     justify-content: space-between;
     font-size: 22px;
     align-items: center;
-
     margin: 5%;
 }
 

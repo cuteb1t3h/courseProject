@@ -22,11 +22,6 @@ public class UserService {
 
     public void saveNew(User user) {
         userRepo.save(user);
-//        cartService.save(new Cart(user));
-    }
-
-    public void save(User user) {
-        userRepo.save(user);
     }
 
     public Optional<User> findById(long id) {

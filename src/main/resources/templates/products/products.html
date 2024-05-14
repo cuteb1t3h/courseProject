@@ -18,25 +18,25 @@
 </head>
 <body>
 
-<section class="section" id="products">
+<section class="section">
     <div th:replace="temp/header :: header"></div>
 
-    <div class="prod_header">
-        <h2 class="prod_header_title">Categories</h2>
+    <div class="section_header">
+        <h2 class="page_suptitle" id="products">Categories</h2>
         <div class="prod_category">
-            <a href="">
+            <a th:href="@{/products(category='acrylic')}">
                 <img th:src="@{/images/acrylic.png}" alt="">
                 <span>Acrylic nail</span>
             </a>
-            <a href="">
+            <a th:href="@{/products(category='gel')}">
                 <img th:src="@{/images/gel.png}" alt="">
                 <span>Gel nail</span>
             </a>
-            <a href="">
+            <a th:href="@{/products(category='care')}">
                 <img th:src="@{/images/care.png}" alt="">
                 <span>Nail care & glue</span>
             </a>
-            <a href="">
+            <a th:href="@{/products(category='accessories')}">
                 <img th:src="@{/images/accessories.png}" alt="">
                 <span>Nail tools & accessories</span>
             </a>

@@ -10,6 +10,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -41,6 +42,8 @@ public class User {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE, pattern = "yyyy-MM-dd")
     private Date dateOfBirth;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Cart> cartList;
 
     @Override
     public String toString() {
